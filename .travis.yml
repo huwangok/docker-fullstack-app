@@ -12,12 +12,12 @@ script:
   - docker run -e CI=true mailsky2010/react-test-app npm run test
 
 after_success: 
-  - docker build -t mailsky2010/docker-frontend:1.0 ./frontend
-  - docker build -t mailsky2010/docker-backend:1.0  ./backend
-  - docker build -t mailsky2010/docker-nginx:1.0    ./nginx
+  - docker build -t mailsky2010/docker-frontend ./frontend
+  - docker build -t mailsky2010/docker-backend  ./backend
+  - docker build -t mailsky2010/docker-nginx    ./nginx
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
-  - docker push mailsky2010/docker-frontend:1.0
-  - docker push mailsky2010/docker-backend:1.0 
-  - docker push mailsky2010/docker-nginx:1.0 
+  - docker push mailsky2010/docker-frontend
+  - docker push mailsky2010/docker-backend 
+  - docker push mailsky2010/docker-nginx 
