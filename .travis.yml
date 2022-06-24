@@ -18,6 +18,6 @@ after_success:
 
   - echo "$DOCER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
-  - dokcer push mailsky2010/docker-frontend
+  - docker push mailsky2010/docker-frontend
   - docker push mailsky2010/docker-backend
-  - docker push mailsky2010/docer-nginx 
+  - docker push mailsky2010/docker-nginx 
